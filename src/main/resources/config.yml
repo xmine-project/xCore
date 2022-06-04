@@ -1,0 +1,25 @@
+# xCore, made by t.me/flxpr | tech.flink.gq/xcore
+
+actionBars:
+  global:
+    noPermission: "&7У вас &cнедостаточно прав &7для выполнения данной команды"
+    unknownCommand: "&cНеизвестная &7команда"
+  core:
+    reload: "&7Конфиг плагина &cперезагружен"
+  motd:
+    new: "&7Запись &cуспешно добавлена &7в конфиг"
+    argNotProvided: "&7Запись для добавления &cне указана"
+
+chat:
+  core:
+    help: "&cxCore&7, made by &ct.me/flxpr &8| &ctech.flink.gq/xcore\n\n&c/core reload &8- &7перезагрузка конфига\n&c/core motd &8- &7добавление новой записи в список motd"
+
+events:
+  join: # вошедший пользователь - %user% (пр. "%user%, привет!"), tps - %tps%
+    active: "enabled" # для выключения - disabled
+    title: "&7Привет, &c%user%&7!"
+    subtitle: "&7Текущий TPS - &c%tps%"
+
+motd: # для перехода ко второй строке используется символ \n
+  - "&c│ &c&lXMINE &8▸ &7tech.flink.gq &8▸ &7TPS: &c%tps% &c☁\n&c│ &7Ванильный сервер майнкрафт &8▸ &ct.me/xminetech"
+  - "&c│ &c&lXMINE &8▸ &7tech.flink.gq &8▸ &7TPS: &c%tps% &c☁\n&c│ &7Дружный сервер майнкрафт &8▸ &ct.me/xminetech"

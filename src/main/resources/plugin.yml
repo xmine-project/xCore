@@ -1,0 +1,9 @@
+name: xCore
+version: '${project.version}'
+main: flxxd.xCore.Main
+api-version: 1.18
+authors: [ flxxd ]
+website: tech.flink.gq/xcore
+commands:
+  core:
+    aliases: ["xcore"]
