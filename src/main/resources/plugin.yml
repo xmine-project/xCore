@@ -1,5 +1,5 @@
 name: xCore
-version: '${project.version}'
+version: 1.0.1
 main: flxxd.xCore.Main
 api-version: 1.18
 authors: [ flxxd ]
