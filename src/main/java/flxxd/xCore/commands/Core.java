@@ -6,6 +6,7 @@ import flxxd.xCore.helpers.AbstractCommand;
 import org.bukkit.Bukkit;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
+import ru.mrbrikster.chatty.api.ChattyApi;
 
 import java.util.List;
 
@@ -32,6 +33,19 @@ public class Core extends AbstractCommand {
                 return;
             }
         }
+
+        if (args[0].equalsIgnoreCase("broadcast") || args[0].equalsIgnoreCase("bc")) {
+            if (player.hasPermission("xCore.broadcast") || player.hasPermission("xCore.bc")) {
+                ChattyApi chatty = ChattyApi.get();
+                String broadcast = Main.getValue("chat.broadcast.format")
+                        .replace("%user%", sender.getName())
+                        .replace("%text%", args[1]);
+
+                chatty.getChat("global").get().sendMessage(broadcast);
+                return;
+            }
+        }
+
         if (args[0].equalsIgnoreCase("motd")) {
             if (player.hasPermission("xCore.motd")) {
                 List<String> list = Main.getList("motd");
@@ -66,7 +80,7 @@ public class Core extends AbstractCommand {
     }
 
     public List<String> complete (CommandSender sender, String[] args) {
-        if (args.length == 1) return Lists.newArrayList("reload", "motd");
+        if (args.length == 1) return Lists.newArrayList("reload", "motd", "broadcast");
         return Lists.newArrayList();
     }
 }

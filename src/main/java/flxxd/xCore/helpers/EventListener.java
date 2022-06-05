@@ -2,6 +2,7 @@ package flxxd.xCore.helpers;
 
 import flxxd.xCore.Main;
 import org.bukkit.Bukkit;
+import org.bukkit.Sound;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
@@ -33,6 +34,15 @@ public class EventListener implements Listener {
 
         if (!Main.getValue("events.join.active").equals("disabled")) {
             player.sendTitle(title, subtitle);
+        }
+
+        if (e.getPlayer().isOp()) {
+            for (Player pp : Bukkit.getOnlinePlayers()) {
+                if (!Main.getValue("events.adminJoinEvent.active").equals("disabled")) {
+                    pp.playSound(pp.getLocation(), Sound.UI_TOAST_CHALLENGE_COMPLETE, 100.0F, 100.0F);
+                    pp.sendTitle(Main.getValue("events.adminJoinEvent.title").replace("%user%", player.getName()), "");
+                }
+            }
         }
     }
 

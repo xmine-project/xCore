@@ -12,14 +12,18 @@ actionBars:
 
 chat:
   core:
-    help: "&cxCore&7, made by &ct.me/flxpr &8| &ctech.flink.gq/xcore\n\n&c/core reload &8- &7перезагрузка конфига\n&c/core motd &8- &7добавление новой записи в список motd"
+    help: "&ctech.flink.gq\n\n&c/core reload &8- &7перезагрузка конфига\n&c/core motd &8- &7добавление новой записи в список motd"
+  broadcast:
+    format: "&cОбъявление&7: %text% &7(Отправитель: &c%user%&7)" # %text% - текст объявления, %user% - отправитель
 
 events:
   join: # вошедший пользователь - %user% (пр. "%user%, привет!"), tps - %tps%
-    active: "enabled" # для выключения - disabled
+    active: "disabled" # для выключения - disabled, включение - enabled
     title: "&7Привет, &c%user%&7!"
     subtitle: "&7Текущий TPS - &c%tps%"
+  adminJoinEvent: # вошедший администратор - %user% (пр. "Администратор %user% зашел на сервер!")
+    active: "enabled" # для выключения - disabled, включение - enabled
+    title: "&7Администратор &c%user% &7зашел на сервер"
 
 motd: # для перехода ко второй строке используется символ \n
-  - "&c│ &c&lXMINE &8▸ &7tech.flink.gq &8▸ &7TPS: &c%tps% &c☁\n&c│ &7Ванильный сервер майнкрафт &8▸ &ct.me/xminetech"
-  - "&c│ &c&lXMINE &8▸ &7tech.flink.gq &8▸ &7TPS: &c%tps% &c☁\n&c│ &7Дружный сервер майнкрафт &8▸ &ct.me/xminetech"
+  - "&c│ &c&lXMINE &8▸ &7tech.flink.gq, thx &c☁\n&c│ &7Ванильный сервер майнкрафт &8▸ &7TPS: &c%tps%"
