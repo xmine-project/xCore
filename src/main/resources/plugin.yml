@@ -1,9 +1,9 @@
 name: xCore
-version: 1.0.2
+version: 1.0.3
 main: flxxd.xCore.Main
 api-version: 1.18
-authors: [ flxxd ]
 depend: [ Chatty ]
+authors: [ flxxd ]
 website: tech.flink.gq/xcore
 commands:
   core:

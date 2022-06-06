@@ -39,7 +39,13 @@ public class EventListener implements Listener {
         if (e.getPlayer().isOp()) {
             for (Player pp : Bukkit.getOnlinePlayers()) {
                 if (!Main.getValue("events.adminJoinEvent.active").equals("disabled")) {
-                    pp.playSound(pp.getLocation(), Sound.UI_TOAST_CHALLENGE_COMPLETE, 100.0F, 100.0F);
+                    if (!Main.getValue("events.adminJoinEvent.sound").equalsIgnoreCase("achievement")) {
+                        pp.playSound(pp.getLocation(), Sound.UI_TOAST_CHALLENGE_COMPLETE, 100.0F, 100.0F);
+                    } else if (!Main.getValue("events.adminJoinEvent.sound").equalsIgnoreCase("exp")) {
+                        pp.playSound(pp.getLocation(), Sound.ENTITY_EXPERIENCE_BOTTLE_THROW, 100.0F, 100.0F);
+                    } else if (!Main.getValue("events.adminJoinEvent.sound").equalsIgnoreCase("lightning")) {
+                        pp.playSound(pp.getLocation(), Sound.ENTITY_LIGHTNING_BOLT_IMPACT, 100.0F, 100.0F);
+                    }
                     pp.sendTitle(Main.getValue("events.adminJoinEvent.title").replace("%user%", player.getName()), "");
                 }
             }
@@ -50,14 +56,16 @@ public class EventListener implements Listener {
     public void onPing(ServerListPingEvent e) {
         if (stringTPS > 20) stringTPS = stringTPS-1;
 
-        List<String> list = Main.getList("motd");
+        List<String> list = Main.getList("motd.list");
         String motd = list.get((int)Math.floor(Math.random() * (double)list.size()))
                 .replace("%tps%", ("" + stringTPS)
                         .replace("[", "")
                         .replace("]", ""))
                 .replace("&", "§");
 
-        e.setMotd(motd);
+        if (!Main.getValue("motd.active").equals("disabled")) {
+            e.setMotd(motd);
+        }
     }
 }
 

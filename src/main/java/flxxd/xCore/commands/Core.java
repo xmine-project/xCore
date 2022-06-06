@@ -48,7 +48,7 @@ public class Core extends AbstractCommand {
 
         if (args[0].equalsIgnoreCase("motd")) {
             if (player.hasPermission("xCore.motd")) {
-                List<String> list = Main.getList("motd");
+                List<String> list = Main.getList("motd.list");
                 String msg = "";
 
                 if (args.length == 1) {
@@ -68,7 +68,7 @@ public class Core extends AbstractCommand {
 
                 list.add(msg);
 
-                Main.getInstance().getConfig().set("motd", list);
+                Main.getInstance().getConfig().set("motd.list", list);
                 Main.getInstance().saveConfig();
 
                 player.sendActionBar(Main.getValue("actionBars.motd.new"));

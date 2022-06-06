@@ -23,7 +23,10 @@ events:
     subtitle: "&7Текущий TPS - &c%tps%"
   adminJoinEvent: # вошедший администратор - %user% (пр. "Администратор %user% зашел на сервер!")
     active: "enabled" # для выключения - disabled, включение - enabled
+    sound: "achievement" # на выбор доступно 3 звука - achievement, exp, lightning
     title: "&7Администратор &c%user% &7зашел на сервер"
 
-motd: # для перехода ко второй строке используется символ \n
-  - "&c│ &c&lXMINE &8▸ &7tech.flink.gq, thx &c☁\n&c│ &7Ванильный сервер майнкрафт &8▸ &7TPS: &c%tps%"
+motd:
+  active: "enabled"  # для выключения - disabled, включение - enabled
+  list:
+    - "&c│ &c&lXMINE &8▸ &7tech.flink.gq, thx &c☁\n&c│ &7Ванильный сервер майнкрафт &8▸ &7TPS: &c%tps%"
